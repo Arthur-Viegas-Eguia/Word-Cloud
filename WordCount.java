@@ -1,5 +1,7 @@
 import java.util.*;
-
+/**
+* Class that holds a word and the number of times it appears in a text
+*/
 public class WordCount{
 
   public String word;
