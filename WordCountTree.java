@@ -1,21 +1,13 @@
 import java.util.*;
 /**
- * Class WordCountTree models a tree that stores words. Each node in the tree
- * represents a letter of the word. The last letter of each word contains the
- * number of times the word appeared in the text. The class also provides the
- * user with methods to check if certain word is in a tree and how many times
- * it was used.
+ * Models a tree that stores words. Each node represents a letter of the word. 
+ * The last letter of each word contains the number of times the word appeared in
+ * the text. The class also has methods to check how many times a word appeared
+ *  in the text.
  */
 public class WordCountTree {
-  /**
-   * Variable root represents the root of the tree
-   */
   private Node root = null;
-  /**
-   * variable numeberOfNodes represents the number of nodes in the tree
-   */
   private int numberOfNodes = 0;
-
   private class Node {
     char character;
     int count;
@@ -32,9 +24,7 @@ public class WordCountTree {
   }
   /**
    * check if the first character of a string is present in the current level
-   * of the tree. If so returns the index in the linked list where the first
-   * character of the word is stored, if it is not in the current level of the
-   * tree, it returns -1
+   * of the tree. 
    * @param word a string, representing a word. The program will check if the first character of the string is present in the current level of the tree
    * @param currentNode a node of the tree where operations will be executed
    * @return the index of the place on the LinkedList were the first character of the string is stored or -1 if the character was not found
@@ -49,10 +39,7 @@ public class WordCountTree {
     return -1;
   } 
   /**
-   * Adds the remaining characters of the string to the tree. Creates a node
-   * sets character of the node to be the first character of word
-   * and links it to parentNode by adding it to the linked list of children of
-   * parentNode. Does that to all remaining characters of word
+   * Adds the remaining characters of the string to the tree.
    * @param word a string representing a word
    * @param parentNode a node, representing the parentNode of the word which is going to be stored
    */
@@ -69,7 +56,7 @@ public class WordCountTree {
     }
   } 
 /**
- * Constructs an empty WordCountTree. Initializes the class.
+ * Constructs the class.
  */         
 public WordCountTree(){
   
@@ -77,8 +64,7 @@ public WordCountTree(){
  
 /**
  * Adds 1 to the existing count for word, or adds word to the WordCountTree
- * with a count of 1 if it was not already present. (Calls auxillary method to 
- * execute the operation.)
+ * with a count of 1 if it was not found. 
  * @param word the word to be added, or having its count incremented
  */
 public void incrementCount(String word){
@@ -90,8 +76,7 @@ public void incrementCount(String word){
 }
 /**
  * Adds 1 to the existing count for word, or adds word to the WordCountTree
- * with a count of 1 if it was not already present. Works with recursion.
- * (called by public method of the same name)
+ * with a count of 1 if it was not found.
  * @param word the word to be added, or having its count incremented
  * @param currentNode the current node, which is the level of the tree where operations are being executed
  */
@@ -115,9 +100,8 @@ private void incrementCount(String word, Node currentNode){
 }
  
 /**
- * Returns true if word is stored in this WordCountTree with
- * a count greater than 0, and false otherwise. (calls private method to
- * perform operations)
+ * Returns true if word is stored in the
+ * a count greater than 0, and false otherwise. 
  * @param word a string representing a word. The method will check whether it is present in the tree
  * @return true if word is stored in the tree with a count greater than 0, false otherwise
  */
@@ -128,9 +112,8 @@ public boolean contains(String word){
   return contains(word, root);
 }
 /**
- * Returns true if word is stored in this WordCountTree with
- * a count greater than 0, and false otherwise. (called by public method og the
- * same name to perform operations)
+ * Returns true if word is stored in the
+ * a count greater than 0, and false otherwise. 
  * @param word a string representing a word. The method will check whether it is present in the tree
  * @param currentNode a node, where the current operations are being executed
  * @return true if word is stored in the tree with a count greater than 0, false otherwise
@@ -155,8 +138,7 @@ private boolean contains(String word, Node currentNode){
 }
  
 /**
- * Returns the count of word, or -1 if word is not in the WordCountTree.
- * (calls helper method to perform operations)
+ * Returns the count of word, or -1 if word is not found.
  * @param word a string, representing the word which is going to be evaluated by the method
  * @return an integer repressenting the number of times word is present in tree; returns -1 if word is not in the tree
  */
@@ -167,8 +149,7 @@ public int getCount(String word){
   return getCount(word, root);
 }
 /**
- * Returns the count of word, or -1 if word is not in the WordCountTree.
- * (called by main method to perform operations)
+ * Returns the count of word, or -1 if word is not found.
  * @param word a string, representing the word which is going to be evaluated by the method
  * @param currentNode a node where all operations of the method are going to be executed
  * @return an integer repressenting the number of times word is present in tree; returns -1 if word is not in the tree
@@ -194,17 +175,14 @@ private int getCount(String word, Node currentNode){
  
   
 /** 
- * Returns a count of the total number of nodes in the tree. 
- * A tree with only a root is a tree with one node; it is an acceptable
- * implementation to have a tree that represents no words have either
- * 1 node (the root) or 0 nodes.
+ * Returns the total number of nodes in the tree. 
  * @return  a count of the total number of nodes in the tree. 
  */
  public int getNodeCount(){
    return numberOfNodes;
  } 
   
-  /** 
+ /** 
   * Creates and sorts in decreasing order a list 
   * of WordCount objects, one per word stored in this 
   * WordCountTree.
