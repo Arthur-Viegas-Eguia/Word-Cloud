@@ -1,5 +1,5 @@
 # Word-Cloud
-Homework developed for Data Structures
+Adaptation of code originally developed for Data Structures
 ## Overview:
 The program
 generates a word cloud based on a text provided by the user via an external file. It also excludes some overtly
